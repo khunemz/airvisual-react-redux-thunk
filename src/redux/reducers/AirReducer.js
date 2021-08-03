@@ -9,19 +9,19 @@ const initialState = {
 
 export const airReducer = (state = initialState, action) => {
   switch (action.type) {
-    case FETCH_AIR_DETAIL_TO_STATE_LOADING:
+    case types.FETCH_AIR_DETAIL_TO_STATE_LOADING:
       return {
         ...state,
         airDetail: null,
         isFetchApi: true,
       };
-    case FETCH_AIR_DETAIL_TO_STATE_SUCCESS:
+    case types.FETCH_AIR_DETAIL_TO_STATE_SUCCESS:
       return {
         ...state,
         airDetail: action.payload,
         isFetchApi: false,
       };
-    case FETCH_AIR_DETAIL_TO_STATE_FAIL:
+    case types.FETCH_AIR_DETAIL_TO_STATE_FAIL:
       return {
         ...state,
         error: action.error,
