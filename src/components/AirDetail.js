@@ -1,22 +1,22 @@
 import React from 'react'
 import Polution from './Polution';
+import Weather from './Weather';
 
 export default function AirDetail({ data }) {
   const {country, current, city, state} = data.data;
   return (
     <>
       <div className="card">
-        <div className="card-title">
+        <div className="card-title">          
+        </div>
+        
+        <div className="card-body">
           <ul>
             <li>Country: { country }</li>
             <li>State: { state }</li>
             <li>City: { city }</li>
           </ul>
-        </div>
-        
-        <div className="card-body">
-          
-
+          <Weather weather={current.weather} city={city} state={state} country={country} />
           <Polution pollution={ current.pollution } />
         </div>
       </div>
