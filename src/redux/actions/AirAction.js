@@ -33,7 +33,10 @@ export const onFetchAirDetailApi = ({ country, state, city }) => {
             "&country=" +
             country +
             "&key=" +
-            API_KEY
+            API_KEY , {
+              'Access-Control-Allow-Origin': '*',
+              crossDomain: true
+            }
         )
         .then(function (response) {
           dispatch(setStageAirDetailToSuccess(response.data));
