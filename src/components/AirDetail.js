@@ -11,6 +11,7 @@ export default function AirDetail({ data }) {
         </div>
         
         <div className="card-body">
+          <h5>Location</h5>
           <ul>
             <li>Country: { country }</li>
             <li>State: { state }</li>
