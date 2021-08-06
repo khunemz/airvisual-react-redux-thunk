@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { onFetchCountryApi } from "../redux";
 import { useSelector, useDispatch } from "react-redux";
 import { v4 as uuidv4 } from 'uuid';
@@ -6,9 +6,13 @@ import State from "./State";
 import "./Country.css";
 
 export default function Country() {
-  const [country, setCountry] = useState("");
+  const [country, setCountry] = useState("thailand");
   const dispatch = useDispatch();
   const { countryState, isFetchApi } = useSelector((state) => state.airReducer);
+
+  useEffect(() => {
+    onFetchCountryState();
+  }, [country])
 
   function onFetchCountryState() {
     dispatch(onFetchCountryApi({ country: country }));
