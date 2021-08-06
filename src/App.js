@@ -9,15 +9,19 @@ import AirList from "./components/AirList";
 import 'bootstrap/dist/css/bootstrap.css';
 import "./App.css";
 import Country from "./components/Country";
+import Navbar from "./components/Navbar";
+import CityList from "./components/CityList";
 
 function App() {
   return (
     <>
+      <Navbar />
       <Provider store={store}>
         <div className="container">
           <Router>
             <Switch>
               <Route exact path="/airlist" component={AirList} />
+              <Route exact path="/citylist/:country/:city" component={CityList} />
               <Route exact path="/" component={Country} />
             </Switch>
           </Router>

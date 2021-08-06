@@ -1,7 +1,7 @@
 import * as types from "./../actions/AirActionType";
 const initialState = {
   countryState: null,
-  city: null,
+  cityState: null,
   airDetail: null,
   isFetchApi: false,
   error: null,
@@ -13,7 +13,7 @@ export const airReducer = (state = initialState, action) => {
       return {
         ...state,
         countryState: null,
-        city: null,
+        cityState: null,
         isFetchApi: true,
       };
     case types.FETCH_COUNTRY_TO_STATE_SUCCESS:
@@ -31,13 +31,13 @@ export const airReducer = (state = initialState, action) => {
     case types.FETCH_CITY_TO_STATE_LOADING:
       return {
         ...state,
-        city: null,
+        cityState: null,
         isFetchApi: true,
       };
     case types.FETCH_CITY_TO_STATE_SUCCESS:
       return {
         ...state,
-        city: action.payload,
+        cityState: action.payload,
         isFetchApi: false,
       };
     case types.FETCH_CITY_TO_STATE_FAIL:

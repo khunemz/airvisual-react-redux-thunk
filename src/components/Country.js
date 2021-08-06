@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { onFetchCountryApi } from "../redux";
 import { useSelector, useDispatch } from "react-redux";
 import { v4 as uuidv4 } from 'uuid';
-import City from "./City";
+import City from "./CityItem";
 import "./Country.css";
 
 export default function Country() {
@@ -10,7 +10,7 @@ export default function Country() {
   const dispatch = useDispatch();
   const { countryState, isFetchApi } = useSelector((state) => state.airReducer);
 
-  const onFetchCountryState = () => {
+  function onFetchCountryState() {
     dispatch(onFetchCountryApi({ country: country }));
   };
 
@@ -47,7 +47,7 @@ export default function Country() {
             const { state } = countryItSelf; 
             const id = uuidv4();
             return (
-              <City key={ id } state={state} />
+              <City key={ id } country={country} state={state} />
             )
           })
         : "No data found"}
