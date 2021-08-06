@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { onFetchCountryApi } from "../redux";
 import { useSelector, useDispatch } from "react-redux";
 import { v4 as uuidv4 } from 'uuid';
-import City from "./CityItem";
+import State from "./State";
 import "./Country.css";
 
 export default function Country() {
@@ -47,7 +47,7 @@ export default function Country() {
             const { state } = countryItSelf; 
             const id = uuidv4();
             return (
-              <City key={ id } country={country} state={state} />
+              <State key={ id } country={country} state={state} />
             )
           })
         : "No data found"}
