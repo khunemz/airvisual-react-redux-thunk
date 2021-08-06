@@ -1,0 +1,8 @@
+.city-card {
+  margin: 10px 0px;
+  cursor: pointer;
+}
+
+.city-card:hover {
+  background-color: #eee;
+}

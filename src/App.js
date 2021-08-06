@@ -8,6 +8,7 @@ import {
 import AirList from "./components/AirList";
 import 'bootstrap/dist/css/bootstrap.css';
 import "./App.css";
+import Country from "./components/Country";
 
 function App() {
   return (
@@ -16,7 +17,8 @@ function App() {
         <div className="container">
           <Router>
             <Switch>
-              <Route exact path="/" component={AirList} />
+              <Route exact path="/airlist" component={AirList} />
+              <Route exact path="/" component={Country} />
             </Switch>
           </Router>
         </div>
