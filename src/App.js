@@ -17,7 +17,7 @@ function App() {
     <>
       <Navbar />
       <Provider store={store}>
-        <div className="container">
+        <div className="container" style={{marginTop: '20px'}}>
           <Router>
             <Switch>
               <Route exact path="/airlist" component={AirList} />

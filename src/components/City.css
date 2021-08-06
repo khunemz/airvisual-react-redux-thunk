@@ -1,8 +1,8 @@
-.state-card {
+.city-card {
   margin: 10px 0px;
   cursor: pointer;
 }
 
-.state-card:hover {
+.city-card:hover {
   background-color: #eee;
 }

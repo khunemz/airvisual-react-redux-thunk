@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { v4 as uuidv4 } from 'uuid';
 import { useLocation } from 'react-router-dom'
 import { onFetchCityApi } from '../redux';
+import City from './City';
 import './CityList.css'
 
 export default function CityList() {
@@ -13,8 +14,6 @@ export default function CityList() {
   const [city, setCity] = useState(state);
   const dispatch = useDispatch();
   const { cityState, isFetchApi } = useSelector((state) => state.airReducer);
-  
-  console.log(cityState);
   function onFetchCityApiHandler() {
     dispatch(onFetchCityApi({ country: country , state: state }));
   }
@@ -23,11 +22,11 @@ export default function CityList() {
   }, [country, state])
   return (
     <>
-      <h2>List</h2>
+      <h3>จังหวัด { state }</h3>
       <ul>
         { cityState !== null && isFetchApi === false ? cityState.data.map( ct => {
           const id = uuidv4();
-          return (<div key={id}>{ct.city}</div>)
+          return (<City key={id} city={ct.city} />)
         }) : <div>Loading ...</div> }
       </ul>
     </>

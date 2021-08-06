@@ -9,7 +9,7 @@ export default function State({ id, state, country }) {
   }
   return (
     <>
-      <div className="card city-card" onClick={() => navigateToCityList()}>
+      <div className="card state-card" onClick={() => navigateToCityList()}>
         <div className="card-body">
           <div className="card-text">
             <div>
