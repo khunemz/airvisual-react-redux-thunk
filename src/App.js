@@ -20,7 +20,7 @@ function App() {
         <div className="container" style={{marginTop: '20px'}}>
           <Router>
             <Switch>
-              <Route exact path="/airlist" component={AirList} />
+              <Route exact path="/airlist/:country/:state/:city" component={AirList} />
               <Route exact path="/citylist/:country/:city" component={CityList} />
               <Route exact path="/" component={Country} />
             </Switch>

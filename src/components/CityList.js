@@ -37,7 +37,7 @@ export default function CityList({ history }) {
         {cityState !== null && isFetchApi === false ? (
           cityState.data.map((ct) => {
             const id = uuidv4();
-            return <City key={id} city={ct.city} />;
+            return <City key={id} country={country} state={state} city={ct.city} />;
           })
         ) : (
           <div>Loading ...</div>

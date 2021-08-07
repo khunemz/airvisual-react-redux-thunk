@@ -6,7 +6,7 @@ import State from "./State";
 import "./Country.css";
 
 export default function Country() {
-  const [country, setCountry] = useState("");
+  const [country, setCountry] = useState("thailand");
   const dispatch = useDispatch();
   const { countryState, isFetchApi } = useSelector((state) => state.airReducer);
 
