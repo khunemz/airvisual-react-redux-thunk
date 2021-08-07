@@ -2,6 +2,11 @@ import axios from "axios";
 import * as types from "./AirActionType";
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 const API_KEY = process.env.REACT_APP_API_KEY;
+const header = {
+  "Access-Control-Allow-Origin": "*",
+  "Content-Type": "application/json",
+  crossDomain: true,
+};
 //AIR DETAIL
 export const setStageAirDetailToLoading = () => ({
   type: types.FETCH_AIR_DETAIL_TO_STATE_LOADING,
@@ -69,10 +74,7 @@ export const onFetchAirDetailApi = ({ country, state, city }) => {
             country +
             "&key=" +
             API_KEY,
-          {
-            "Access-Control-Allow-Origin": "*",
-            crossDomain: true,
-          }
+          header
         )
         .then(function (response) {
           dispatch(setStageAirDetailToSuccess(response.data));
@@ -98,7 +100,8 @@ export const onFetchCityApi = ({ country, state }) => {
             "&country=" +
             country +
             "&key=" +
-            API_KEY
+            API_KEY,
+          header
         )
         .then(function (response) {
           dispatch(setStageCityToSuccess(response.data));
@@ -117,7 +120,7 @@ export const onFetchCountryApi = ({ country }) => {
     try {
       dispatch(setStageCountryToLoading());
       await axios
-        .get(BASE_URL + "states?country=" + country + "&key=" + API_KEY)
+        .get(BASE_URL + "states?country=" + country + "&key=" + API_KEY, header)
         .then(function (response) {
           dispatch(setStageCountryToSuccess(response.data));
         })

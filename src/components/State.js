@@ -13,7 +13,7 @@ export default function State({ id, state, country }) {
         <div className="card-body">
           <div className="card-text">
             <div>
-              { state }
+              จังหวัด { state }
             </div>
           </div>
         </div>

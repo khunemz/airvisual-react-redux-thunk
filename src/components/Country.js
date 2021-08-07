@@ -6,7 +6,7 @@ import State from "./State";
 import "./Country.css";
 
 export default function Country() {
-  const [country, setCountry] = useState("thailand");
+  const [country, setCountry] = useState("");
   const dispatch = useDispatch();
   const { countryState, isFetchApi } = useSelector((state) => state.airReducer);
 
@@ -35,6 +35,7 @@ export default function Country() {
           className="btn btn-outline-primary"
           style={{margin: '0px 15px 0px 0px'}}
           onClick={() => onFetchCountryState()}
+          disabled={ isFetchApi ? true : false}
         >
           ค้นหา
         </button>
@@ -45,6 +46,8 @@ export default function Country() {
           ล้างข้อมูล
         </button>
       </div>
+      <br />
+      <h5>ประเทศ { country }</h5>
       <br />
       {countryState !== null && isFetchApi === false
         ? countryState.data.map((countryItSelf) => {
